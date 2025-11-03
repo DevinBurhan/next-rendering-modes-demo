@@ -1,15 +1,20 @@
 import axios from "axios";
 import { Container, Row } from "react-bootstrap";
+import { API_ENDPOINT, SUPABASE_KEY } from "../../../constant";
 
 const fetchCar = async (id) => {
-  const { data } = await axios.get(
-    `https://ssr-supercars-gallery.vercel.app/api/cars?id=${escape(id)}`
-  );
-  return data;
+  const { data } = await axios.get(`${API_ENDPOINT}/cars?id=eq.${id}`, {
+    headers: {
+      apikey: SUPABASE_KEY,
+    },
+  });
+
+  return data[0];
 };
 
 export async function getServerSideProps(context) {
   const data = await fetchCar(context.params.id);
+  console.log("data", data);
   return {
     props: {
       data: data,
