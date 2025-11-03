@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { Card, Col, Container, FormControl, Row } from "react-bootstrap";
 import { useQuery } from "react-query";
-import { API_ENDPOINT, SUPABASE_KEY } from "../../constant";
+import { API_ENDPOINT, SUPABASE_KEY } from "../constant";
 
 const fetchCar = async ({ queryKey }) => {
   const [_, query] = queryKey;

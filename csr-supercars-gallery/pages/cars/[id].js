@@ -2,7 +2,7 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import { Container, Row } from "react-bootstrap";
 import { useQuery } from "react-query";
-import { API_ENDPOINT, SUPABASE_KEY } from "../../../constant";
+import { API_ENDPOINT, SUPABASE_KEY } from "../../constant";
 
 const fetchCar = async ({ queryKey }) => {
   const [_, id] = queryKey;
